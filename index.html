@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Eric Boakye Owusu-Sekyere | Aspiring Software Engineer</title>
+
+  <meta
+    name="description"
+    content="Personal portfolio website of Eric Boakye Owusu-Sekyere, an aspiring software engineer and STEM enthusiast based in Tamale, Ghana."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --card:rgba(255,255,255,0.05);
+      --text:#f5f7ff;
+      --muted:#9ca3af;
+      --accent:#7c9cff;
+      --accent2:#9b7cff;
+      --border:rgba(255,255,255,0.1);
+      --radius:22px;
+      --shadow:0 10px 40px rgba(0,0,0,.25);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:"Space Grotesk",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124,156,255,.12), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(155,124,255,.10), transparent 30%),
+        var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+      line-height:1.7;
+    }
+
+    .container{
+      width:min(92%,1150px);
+      margin:auto;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    section{
+      padding:100px 0;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(14px);
+      background:rgba(11,15,25,.75);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+    }
+
+    .logo{
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:1.3rem;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      transition:.3s ease;
+    }
+
+    .nav-links a:hover{
+      color:white;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+    }
+
+    .eyebrow{
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:1px;
+      margin-bottom:1rem;
+      font-size:.95rem;
+    }
+
+    h1{
+      font-size:clamp(3rem,7vw,5.8rem);
+      line-height:1.05;
+      margin-bottom:1.5rem;
+    }
+
+    .headline-accent{
+      font-family:"Instrument Serif",serif;
+      font-style:italic;
+      font-weight:400;
+      color:#c8d4ff;
+    }
+
+    .hero p{
+      color:var(--muted);
+      max-width:680px;
+      margin-bottom:2rem;
+      font-size:1.08rem;
+    }
+
+    .cta-group{
+      display:flex;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:600;
+      transition:.3s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:white;
+      box-shadow:var(--shadow);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+    }
+
+    .btn-secondary{
+      border:1px solid var(--border);
+      color:white;
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,.05);
+    }
+
+    /* TITLES */
+
+    .section-title{
+      font-size:2.3rem;
+      margin-bottom:1rem;
+    }
+
+    .section-subtitle{
+      color:var(--muted);
+      max-width:650px;
+      margin-bottom:3rem;
+    }
+
+    /* CARDS */
+
+    .about-card,
+    .skill-card,
+    .timeline-content,
+    .contact-form{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      backdrop-filter:blur(12px);
+    }
+
+    .about-card{
+      padding:2rem;
+    }
+
+    /* SKILLS */
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1.2rem;
+    }
+
+    .skill-card{
+      padding:1.5rem;
+      transition:.3s ease;
+    }
+
+    .skill-card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(124,156,255,.4);
+    }
+
+    .skill-card h3{
+      margin-bottom:.6rem;
+    }
+
+    .skill-card p{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    /* TIMELINE */
+
+    .timeline{
+      position:relative;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:15px;
+      top:0;
+      width:2px;
+      height:100%;
+      background:rgba(255,255,255,.12);
+    }
+
+    .timeline-item{
+      position:relative;
+      padding-left:60px;
+      margin-bottom:2.5rem;
+    }
+
+    .timeline-dot{
+      position:absolute;
+      left:6px;
+      top:8px;
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+    }
+
+    .timeline-content{
+      padding:1.5rem;
+    }
+
+    .timeline-content span{
+      color:var(--accent);
+      font-size:.9rem;
+    }
+
+    .timeline-content h3{
+      margin:.5rem 0;
+    }
+
+    .timeline-content p{
+      color:var(--muted);
+    }
+
+    /* CONTACT */
+
+    .contact-form{
+      padding:2rem;
+      max-width:700px;
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+    }
+
+    input,
+    textarea{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:14px;
+      color:white;
+      font-family:inherit;
+      outline:none;
+    }
+
+    input:focus,
+    textarea:focus{
+      border-color:var(--accent);
+    }
+
+    textarea{
+      min-height:140px;
+      resize:vertical;
+    }
+
+    /* FOOTER */
+
+    footer{
+      border-top:1px solid var(--border);
+      padding:2rem 0;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    .footer-icons{
+      display:flex;
+      justify-content:center;
+      gap:1.2rem;
+      margin-top:1rem;
+    }
+
+    .footer-icons a{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#dbe4ff;
+      transition:.3s ease;
+    }
+
+    .footer-icons a:hover{
+      transform:translateY(-4px);
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:white;
+    }
+
+    /* ANIMATIONS */
+
+    .fade-up{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .8s ease;
+    }
+
+    .fade-up.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .nav-inner{
+        flex-direction:column;
+        gap:1rem;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      h1{
+        font-size:3.2rem;
+      }
+
+      .hero{
+        padding-top:3rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+    <div class="container nav-inner">
+
+      <div class="logo">
+        ERIC B. O. S.
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container fade-up">
+
+      <div class="eyebrow">
+        Aspiring Software Engineer • Tamale, Ghana
+      </div>
+
+      <h1>
+        Building digital experiences with
+        <span class="headline-accent">
+          curiosity, creativity, and purpose.
+        </span>
+      </h1>
+
+      <p>
+        I'm Eric Boakye Owusu-Sekyere, an aspiring software engineer and STEM enthusiast passionate about technology, innovation, and creating meaningful digital experiences that solve real-world problems.
+      </p>
+
+      <div class="cta-group">
+        <a href="#contact" class="btn btn-primary">
+          Get In Touch
+        </a>
+
+        <a href="#about" class="btn btn-secondary">
+          Learn More
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <div class="fade-up">
+        <h2 class="section-title">
+          About Me
+        </h2>
+
+        <p class="section-subtitle">
+          Passionate about software engineering, STEM, and building impactful technology solutions.
+        </p>
+      </div>
+
+      <div class="about-card fade-up">
+
+        <p>
+          I am an aspiring software engineer based in Tamale, Ghana with a growing passion for web development and innovation. My interest in technology began with curiosity and continues to grow through learning, experimentation, and building projects.
+        </p>
+
+        <br>
+
+        <p>
+          I enjoy exploring how software can solve everyday challenges while continuously improving my technical and creative skills.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <div class="container">
+
+      <div class="fade-up">
+        <h2 class="section-title">
+          Skills
+        </h2>
+
+        <p class="section-subtitle">
+          Technologies and strengths shaping my software engineering journey.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card fade-up">
+          <h3>HTML</h3>
+
+          <p>
+            Building responsive and accessible web structures using clean semantic markup.
+          </p>
+        </div>
+
+        <div class="skill-card fade-up">
+          <h3>Software Engineering</h3>
+
+          <p>
+            Exploring development principles, workflows, and scalable software practices.
+          </p>
+        </div>
+
+        <div class="skill-card fade-up">
+          <h3>Problem Solving</h3>
+
+          <p>
+            Passionate about using technology creatively to solve real-world problems.
+          </p>
+        </div>
+
+        <div class="skill-card fade-up">
+          <h3>STEM Enthusiasm</h3>
+
+          <p>
+            Interested in innovation, future technologies, and digital transformation.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <section id="experience">
+
+    <div class="container">
+
+      <div class="fade-up">
+        <h2 class="section-title">
+          Experience Timeline
+        </h2>
+
+        <p class="section-subtitle">
+          Key moments and milestones in my learning journey.
+        </p>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item fade-up">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <span>Career Highlight</span>
+
+            <h3>
+              Started Web Development Journey
+            </h3>
+
+            <p>
+              Began learning HTML and modern web development concepts while building personal projects.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="timeline-item fade-up">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <span>Career Highlight</span>
+
+            <h3>
+              Focused on Software Engineering Growth
+            </h3>
+
+            <p>
+              Continued improving technical knowledge while exploring innovative technology solutions.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="timeline-item fade-up">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <span>Current Goal</span>
+
+            <h3>
+              Building Toward a Professional Tech Career
+            </h3>
+
+            <p>
+              Working toward becoming a skilled software engineer focused on meaningful digital experiences.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="fade-up">
+
+        <h2 class="section-title">
+          Get In Touch
+        </h2>
+
+        <p class="section-subtitle">
+          Interested in collaborating, connecting, or discussing opportunities? Feel free to send a message.
+        </p>
+
+      </div>
+
+      <div class="contact-form fade-up">
+
+        <form>
+
+          <input
+            type="text"
+            placeholder="Your Name"
+            required
+          >
+
+          <input
+            type="email"
+            placeholder="Your Email"
+            required
+          >
+
+          <textarea
+            placeholder="Your Message"
+            required
+          ></textarea>
+
+          <button type="submit" class="btn btn-primary">
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      <p>
+        © 2026 Eric Boakye Owusu-Sekyere. All rights reserved.
+      </p>
+
+      <div class="footer-icons">
+
+        <!-- EMAIL -->
+
+        <a
+          href="mailto:eric.sekyere01@gmail.com"
+          aria-label="Email Eric"
+          target="_blank"
+        >
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.8">
+
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H4.5a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5H4.5A2.25 2.25 0 0 0 2.25 6.75m19.5 0v.243a2.25 2.25 0 0 1-.876 1.782l-7.5 5.625a2.25 2.25 0 0 1-2.748 0l-7.5-5.625A2.25 2.25 0 0 1 2.25 6.993V6.75"
+            />
+
+          </svg>
+
+        </a>
+
+        <!-- LINKEDIN -->
+
+        <a
+          href="https://www.linkedin.com/in/ericowusu1234567"
+          aria-label="LinkedIn Profile"
+          target="_blank"
+        >
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            fill="currentColor"
+            viewBox="0 0 24 24">
+
+            <path d="M4.98 3.5C4.98 4.604 4.104 5.5 3 5.5S1.02 4.604 1.02 3.5 1.896 1.5 3 1.5s1.98.896 1.98 2zM1.5 8h3V22h-3V8zm7.5 0h2.877v1.91h.041c.401-.761 1.381-1.562 2.845-1.562C18.042 8.348 19.5 10.07 19.5 13.13V22h-3v-7.14c0-1.704-.03-3.897-2.373-3.897-2.373 0-2.736 1.853-2.736 3.77V22h-3V8z"/>
+
+          </svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- JS -->
+
+  <script>
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach((entry) => {
+
+        if(entry.isIntersecting){
+          entry.target.classList.add("show");
+        }
+
+      });
+
+    }, {
+      threshold:0.15
+    });
+
+    document.querySelectorAll(".fade-up").forEach((el)=>{
+      observer.observe(el);
+    });
+
+    document.querySelector("form").addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      alert("Thank you! Your message has been received.");
+
+    });
+
+  </script>
+
+</body>
+</html>
