@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#0b0f19">
 
   <title>Eric Boakye Owusu-Sekyere | Aspiring Software Engineer</title>
 
@@ -30,6 +31,7 @@
       --border:rgba(255,255,255,0.1);
       --radius:22px;
       --shadow:0 10px 40px rgba(0,0,0,.25);
+      --shadow-sm:0 4px 20px rgba(124,156,255,.15);
     }
 
     *{
@@ -76,6 +78,12 @@
       backdrop-filter:blur(14px);
       background:rgba(11,15,25,.75);
       border-bottom:1px solid var(--border);
+      transition:all .3s ease;
+    }
+
+    nav.scrolled{
+      background:rgba(11,15,25,.95);
+      box-shadow:0 2px 20px rgba(0,0,0,.3);
     }
 
     .nav-inner{
@@ -88,6 +96,15 @@
     .logo{
       font-weight:700;
       letter-spacing:1px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      transition:.3s ease;
+    }
+
+    .logo:hover{
+      transform:scale(1.05);
     }
 
     .nav-links{
@@ -98,10 +115,28 @@
     .nav-links a{
       color:var(--muted);
       transition:.3s ease;
+      position:relative;
+      font-size:.95rem;
+      font-weight:500;
+    }
+
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      bottom:-2px;
+      left:0;
+      width:0;
+      height:2px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      transition:width .3s ease;
     }
 
     .nav-links a:hover{
       color:white;
+    }
+
+    .nav-links a:hover::after{
+      width:100%;
     }
 
     /* HERO */
@@ -110,6 +145,33 @@
       min-height:100vh;
       display:flex;
       align-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      top:-50%;
+      right:-20%;
+      width:600px;
+      height:600px;
+      background:radial-gradient(circle, rgba(124,156,255,.08) 0%, transparent 70%);
+      animation:float 8s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%, 100%{
+        transform:translateY(0px) translateX(0px);
+      }
+      50%{
+        transform:translateY(30px) translateX(20px);
+      }
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:1;
     }
 
     .eyebrow{
@@ -118,12 +180,50 @@
       letter-spacing:1px;
       margin-bottom:1rem;
       font-size:.95rem;
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+    }
+
+    .eyebrow::before{
+      content:"";
+      display:inline-block;
+      width:8px;
+      height:8px;
+      background:var(--accent);
+      border-radius:50%;
+      animation:pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse{
+      0%, 100%{
+        opacity:1;
+      }
+      50%{
+        opacity:.3;
+      }
     }
 
     h1{
       font-size:clamp(3rem,7vw,5.8rem);
       line-height:1.05;
       margin-bottom:1.5rem;
+      background:linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      animation:fadeInUp .8s ease forwards;
+    }
+
+    @keyframes fadeInUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
     }
 
     .headline-accent{
@@ -138,22 +238,48 @@
       max-width:680px;
       margin-bottom:2rem;
       font-size:1.08rem;
+      animation:fadeInUp .8s ease .2s forwards;
+      opacity:0;
     }
 
     .cta-group{
       display:flex;
       gap:1rem;
       flex-wrap:wrap;
+      animation:fadeInUp .8s ease .4s forwards;
+      opacity:0;
     }
 
     .btn{
-      padding:14px 22px;
+      padding:14px 28px;
       border-radius:999px;
       font-weight:600;
-      transition:.3s ease;
+      transition:all .3s ease;
       display:inline-flex;
       align-items:center;
       justify-content:center;
+      position:relative;
+      overflow:hidden;
+      cursor:pointer;
+      border:none;
+    }
+
+    .btn::before{
+      content:"";
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:0;
+      height:0;
+      border-radius:50%;
+      background:rgba(255,255,255,.2);
+      transform:translate(-50%, -50%);
+      transition:width .6s, height .6s;
+    }
+
+    .btn:active::before{
+      width:300px;
+      height:300px;
     }
 
     .btn-primary{
@@ -164,15 +290,18 @@
 
     .btn-primary:hover{
       transform:translateY(-3px);
+      box-shadow:0 15px 50px rgba(124,156,255,.3);
     }
 
     .btn-secondary{
-      border:1px solid var(--border);
+      border:2px solid var(--border);
       color:white;
+      background:transparent;
     }
 
     .btn-secondary:hover{
       background:rgba(255,255,255,.05);
+      border-color:var(--accent);
     }
 
     /* TITLES */
@@ -180,6 +309,10 @@
     .section-title{
       font-size:2.3rem;
       margin-bottom:1rem;
+      background:linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
     }
 
     .section-subtitle{
@@ -198,6 +331,7 @@
       border:1px solid var(--border);
       border-radius:var(--radius);
       backdrop-filter:blur(12px);
+      transition:all .3s ease;
     }
 
     .about-card{
@@ -214,21 +348,41 @@
 
     .skill-card{
       padding:1.5rem;
-      transition:.3s ease;
+      cursor:pointer;
+      position:relative;
+    }
+
+    .skill-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg,rgba(124,156,255,.1),rgba(155,124,255,.1));
+      border-radius:var(--radius);
+      opacity:0;
+      transition:opacity .3s ease;
+      z-index:-1;
     }
 
     .skill-card:hover{
-      transform:translateY(-5px);
+      transform:translateY(-8px);
       border-color:rgba(124,156,255,.4);
+      box-shadow:var(--shadow-sm);
+    }
+
+    .skill-card:hover::before{
+      opacity:1;
     }
 
     .skill-card h3{
       margin-bottom:.6rem;
+      color:var(--text);
+      font-weight:600;
     }
 
     .skill-card p{
       color:var(--muted);
       font-size:.95rem;
+      line-height:1.6;
     }
 
     /* TIMELINE */
@@ -244,14 +398,20 @@
       top:0;
       width:2px;
       height:100%;
-      background:rgba(255,255,255,.12);
+      background:linear-gradient(180deg, var(--accent) 0%, transparent 100%);
     }
 
     .timeline-item{
       position:relative;
       padding-left:60px;
       margin-bottom:2.5rem;
+      opacity:0;
+      animation:fadeInUp .6s ease forwards;
     }
+
+    .timeline-item:nth-child(1){ animation-delay:.1s; }
+    .timeline-item:nth-child(2){ animation-delay:.2s; }
+    .timeline-item:nth-child(3){ animation-delay:.3s; }
 
     .timeline-dot{
       position:absolute;
@@ -261,6 +421,17 @@
       height:18px;
       border-radius:50%;
       background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 20px rgba(124,156,255,.4);
+      animation:pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot{
+      0%, 100%{
+        box-shadow:0 0 20px rgba(124,156,255,.4);
+      }
+      50%{
+        box-shadow:0 0 30px rgba(124,156,255,.6);
+      }
     }
 
     .timeline-content{
@@ -270,14 +441,19 @@
     .timeline-content span{
       color:var(--accent);
       font-size:.9rem;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:.5px;
     }
 
     .timeline-content h3{
       margin:.5rem 0;
+      font-weight:600;
     }
 
     .timeline-content p{
       color:var(--muted);
+      line-height:1.6;
     }
 
     /* CONTACT */
@@ -290,11 +466,16 @@
     form{
       display:flex;
       flex-direction:column;
-      gap:1rem;
+      gap:1.2rem;
+    }
+
+    .form-group{
+      position:relative;
     }
 
     input,
     textarea{
+      width:100%;
       background:rgba(255,255,255,.04);
       border:1px solid var(--border);
       padding:14px;
@@ -302,11 +483,19 @@
       color:white;
       font-family:inherit;
       outline:none;
+      transition:all .3s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder{
+      color:rgba(255,255,255,.4);
     }
 
     input:focus,
     textarea:focus{
       border-color:var(--accent);
+      background:rgba(255,255,255,.08);
+      box-shadow:0 0 20px rgba(124,156,255,.1);
     }
 
     textarea{
@@ -318,16 +507,33 @@
 
     footer{
       border-top:1px solid var(--border);
-      padding:2rem 0;
+      padding:3rem 0 2rem;
       text-align:center;
       color:var(--muted);
+      position:relative;
+    }
+
+    footer::before{
+      content:"";
+      position:absolute;
+      top:-1px;
+      left:0;
+      right:0;
+      height:1px;
+      background:linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .footer-content{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:2rem;
     }
 
     .footer-icons{
       display:flex;
       justify-content:center;
       gap:1.2rem;
-      margin-top:1rem;
     }
 
     .footer-icons a{
@@ -340,13 +546,34 @@
       align-items:center;
       justify-content:center;
       color:#dbe4ff;
-      transition:.3s ease;
+      transition:all .3s ease;
+      position:relative;
+    }
+
+    .footer-icons a::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      opacity:0;
+      transition:opacity .3s ease;
+      z-index:-1;
     }
 
     .footer-icons a:hover{
-      transform:translateY(-4px);
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      transform:translateY(-5px);
       color:white;
+      border-color:var(--accent);
+    }
+
+    .footer-icons a:hover::before{
+      opacity:1;
+    }
+
+    footer p{
+      font-size:.9rem;
+      order:1;
     }
 
     /* ANIMATIONS */
@@ -362,6 +589,25 @@
       transform:translateY(0);
     }
 
+    /* SCROLL INDICATOR */
+
+    .scroll-indicator{
+      position:absolute;
+      bottom:30px;
+      left:50%;
+      transform:translateX(-50%);
+      animation:bounce 2s infinite;
+    }
+
+    @keyframes bounce{
+      0%, 100%{
+        transform:translateX(-50%) translateY(0);
+      }
+      50%{
+        transform:translateX(-50%) translateY(10px);
+      }
+    }
+
     /* MOBILE */
 
     @media(max-width:768px){
@@ -374,14 +620,68 @@
       .nav-links{
         flex-wrap:wrap;
         justify-content:center;
+        gap:1rem;
       }
 
       h1{
-        font-size:3.2rem;
+        font-size:2.5rem;
       }
 
       .hero{
         padding-top:3rem;
+      }
+
+      .section-title{
+        font-size:1.8rem;
+      }
+
+      .cta-group{
+        flex-direction:column;
+        width:100%;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .skills-grid{
+        grid-template-columns:1fr;
+      }
+
+      .timeline::before{
+        left:8px;
+      }
+
+      .timeline-item{
+        padding-left:45px;
+      }
+
+      .timeline-dot{
+        left:0;
+      }
+
+      .footer-content{
+        gap:1.5rem;
+      }
+
+      .footer-icons{
+        gap:1rem;
+      }
+
+      footer p{
+        font-size:.85rem;
+      }
+    }
+
+    /* ACCESSIBILITY */
+
+    @media(prefers-reduced-motion:reduce){
+      *,
+      *::before,
+      *::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
       }
     }
 
@@ -412,31 +712,33 @@
   <!-- HERO -->
 
   <section class="hero">
-    <div class="container fade-up">
+    <div class="container hero-content">
 
-      <div class="eyebrow">
-        Aspiring Software Engineer • Tamale, Ghana
-      </div>
+      <div class="fade-up">
+        <div class="eyebrow">
+          Aspiring Software Engineer • Tamale, Ghana
+        </div>
 
-      <h1>
-        Building digital experiences with
-        <span class="headline-accent">
-          curiosity, creativity, and purpose.
-        </span>
-      </h1>
+        <h1>
+          Building digital experiences with
+          <span class="headline-accent">
+            curiosity, creativity, and purpose.
+          </span>
+        </h1>
 
-      <p>
-        I'm Eric Boakye Owusu-Sekyere, an aspiring software engineer and STEM enthusiast passionate about technology, innovation, and creating meaningful digital experiences that solve real-world problems.
-      </p>
+        <p>
+          I'm Eric Boakye Owusu-Sekyere, an aspiring software engineer and STEM enthusiast passionate about technology, innovation, and creating meaningful digital experiences that solve real-world problems.
+        </p>
 
-      <div class="cta-group">
-        <a href="#contact" class="btn btn-primary">
-          Get In Touch
-        </a>
+        <div class="cta-group">
+          <a href="#contact" class="btn btn-primary">
+            Get In Touch
+          </a>
 
-        <a href="#about" class="btn btn-secondary">
-          Learn More
-        </a>
+          <a href="#about" class="btn btn-secondary">
+            Learn More
+          </a>
+        </div>
       </div>
 
     </div>
@@ -461,13 +763,13 @@
       <div class="about-card fade-up">
 
         <p>
-          I am an aspiring software engineer based in Tamale, Ghana with a growing passion for web development and innovation. My interest in technology began with curiosity and continues to grow through learning, experimentation, and building projects.
+          I am an aspiring software engineer based in Tamale, Ghana with a growing passion for web development and innovation. My interest in technology began with curiosity and continues to grow through hands-on learning and exploration of new frameworks and methodologies.
         </p>
 
         <br>
 
         <p>
-          I enjoy exploring how software can solve everyday challenges while continuously improving my technical and creative skills.
+          I enjoy exploring how software can solve everyday challenges while continuously improving my technical and creative skills. I believe in writing clean, maintainable code and staying updated with industry best practices.
         </p>
 
       </div>
@@ -495,10 +797,10 @@
       <div class="skills-grid">
 
         <div class="skill-card fade-up">
-          <h3>HTML</h3>
+          <h3>Web Development</h3>
 
           <p>
-            Building responsive and accessible web structures using clean semantic markup.
+            Building responsive and accessible web applications using modern HTML, CSS, and JavaScript frameworks.
           </p>
         </div>
 
@@ -506,7 +808,7 @@
           <h3>Software Engineering</h3>
 
           <p>
-            Exploring development principles, workflows, and scalable software practices.
+            Exploring development principles, workflows, design patterns, and scalable software architecture practices.
           </p>
         </div>
 
@@ -514,7 +816,7 @@
           <h3>Problem Solving</h3>
 
           <p>
-            Passionate about using technology creatively to solve real-world problems.
+            Passionate about using technology creatively to solve real-world problems with elegant and efficient solutions.
           </p>
         </div>
 
@@ -522,7 +824,7 @@
           <h3>STEM Enthusiasm</h3>
 
           <p>
-            Interested in innovation, future technologies, and digital transformation.
+            Interested in innovation, emerging technologies, digital transformation, and the future of tech.
           </p>
         </div>
 
@@ -550,11 +852,11 @@
 
       <div class="timeline">
 
-        <div class="timeline-item fade-up">
+        <div class="timeline-item">
 
           <div class="timeline-dot"></div>
 
-          <div class="timeline-content">
+          <div class="timeline-content fade-up">
 
             <span>Career Highlight</span>
 
@@ -563,18 +865,18 @@
             </h3>
 
             <p>
-              Began learning HTML and modern web development concepts while building personal projects.
+              Began learning HTML, CSS, and JavaScript while building personal projects to solidify fundamental web development concepts.
             </p>
 
           </div>
 
         </div>
 
-        <div class="timeline-item fade-up">
+        <div class="timeline-item">
 
           <div class="timeline-dot"></div>
 
-          <div class="timeline-content">
+          <div class="timeline-content fade-up">
 
             <span>Career Highlight</span>
 
@@ -583,18 +885,18 @@
             </h3>
 
             <p>
-              Continued improving technical knowledge while exploring innovative technology solutions.
+              Continued improving technical knowledge while exploring innovative technology solutions and best practices.
             </p>
 
           </div>
 
         </div>
 
-        <div class="timeline-item fade-up">
+        <div class="timeline-item">
 
           <div class="timeline-dot"></div>
 
-          <div class="timeline-content">
+          <div class="timeline-content fade-up">
 
             <span>Current Goal</span>
 
@@ -603,7 +905,7 @@
             </h3>
 
             <p>
-              Working toward becoming a skilled software engineer focused on meaningful digital experiences.
+              Working toward becoming a skilled software engineer focused on creating meaningful digital experiences and contributing to impactful projects.
             </p>
 
           </div>
@@ -638,22 +940,28 @@
 
         <form>
 
-          <input
-            type="text"
-            placeholder="Your Name"
-            required
-          >
+          <div class="form-group">
+            <input
+              type="text"
+              placeholder="Your Name"
+              required
+            >
+          </div>
 
-          <input
-            type="email"
-            placeholder="Your Email"
-            required
-          >
+          <div class="form-group">
+            <input
+              type="email"
+              placeholder="Your Email"
+              required
+            >
+          </div>
 
-          <textarea
-            placeholder="Your Message"
-            required
-          ></textarea>
+          <div class="form-group">
+            <textarea
+              placeholder="Your Message"
+              required
+            ></textarea>
+          </div>
 
           <button type="submit" class="btn btn-primary">
             Send Message
@@ -673,57 +981,65 @@
 
     <div class="container">
 
-      <p>
-        © 2026 Eric Boakye Owusu-Sekyere. All rights reserved.
-      </p>
+      <div class="footer-content">
 
-      <div class="footer-icons">
+        <div class="footer-icons">
 
-        <!-- EMAIL -->
+          <!-- EMAIL -->
 
-        <a
-          href="mailto:eric.sekyere01@gmail.com"
-          aria-label="Email Eric"
-          target="_blank"
-        >
+          <a
+            href="mailto:eric.sekyere01@gmail.com"
+            aria-label="Email Eric"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
 
-          <svg xmlns="http://www.w3.org/2000/svg"
-            width="22"
-            height="22"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.8">
+            <svg xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true">
 
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H4.5a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5H4.5A2.25 2.25 0 0 0 2.25 6.75m19.5 0v.243a2.25 2.25 0 0 1-.876 1.782l-7.5 5.625a2.25 2.25 0 0 1-2.748 0l-7.5-5.625A2.25 2.25 0 0 1 2.25 6.993V6.75"
-            />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H4.5a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5H4.5A2.25 2.25 0 0 0 2.25 6.75m19.5 0v.243a2.25 2.25 0 0 1-.876 1.782l-7.5 4.5a2.25 2.25 0 0 1-2.318 0l-7.5-4.5A2.25 2.25 0 0 1 2.25 7.002V6.75"
+              />
 
-          </svg>
+            </svg>
 
-        </a>
+          </a>
 
-        <!-- LINKEDIN -->
+          <!-- LINKEDIN -->
 
-        <a
-          href="https://www.linkedin.com/in/ericowusu1234567"
-          aria-label="LinkedIn Profile"
-          target="_blank"
-        >
+          <a
+            href="https://www.linkedin.com/in/ericowusu1234567"
+            aria-label="LinkedIn Profile"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
 
-          <svg xmlns="http://www.w3.org/2000/svg"
-            width="22"
-            height="22"
-            fill="currentColor"
-            viewBox="0 0 24 24">
+            <svg xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true">
 
-            <path d="M4.98 3.5C4.98 4.604 4.104 5.5 3 5.5S1.02 4.604 1.02 3.5 1.896 1.5 3 1.5s1.98.896 1.98 2zM1.5 8h3V22h-3V8zm7.5 0h2.877v1.91h.041c.401-.761 1.381-1.562 2.845-1.562C18.042 8.348 19.5 10.07 19.5 13.13V22h-3v-7.14c0-1.704-.03-3.897-2.373-3.897-2.373 0-2.736 1.853-2.736 3.77V22h-3V8z"/>
+              <path d="M4.98 3.5C4.98 4.604 4.104 5.5 3 5.5S1.02 4.604 1.02 3.5 1.896 1.5 3 1.5s1.98.896 1.98 2zM1.5 8h3V22h-3V8zm7.5 0h2.877v1.91h.041c.401-.761 1.381-1.562 2.845-1.562C18.042 8.348 19.5 9.797 19.5 12.635V22h-3v-8.446c0-.936-.336-1.577-1.194-1.577-.691 0-1.102.46-1.283 1.01-.064.16-.102.384-.102.606V22h-3V8zm11.997 0h3V22h-3v-12z"/>
 
-          </svg>
+            </svg>
 
-        </a>
+          </a>
+
+        </div>
+
+        <p>
+          © 2026 Eric Boakye Owusu-Sekyere. All rights reserved.
+        </p>
 
       </div>
 
@@ -735,30 +1051,81 @@
 
   <script>
 
+    // Intersection Observer for fade-up animations
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
     const observer = new IntersectionObserver((entries) => {
-
       entries.forEach((entry) => {
-
         if(entry.isIntersecting){
           entry.target.classList.add("show");
+          observer.unobserve(entry.target);
         }
-
       });
+    }, observerOptions);
 
-    }, {
-      threshold:0.15
-    });
-
-    document.querySelectorAll(".fade-up").forEach((el)=>{
+    document.querySelectorAll(".fade-up").forEach((el) => {
       observer.observe(el);
     });
 
-    document.querySelector("form").addEventListener("submit", function(e){
+    // Navbar scroll effect
+    const nav = document.querySelector('nav');
+    let lastScrollTop = 0;
 
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if(currentScroll > 50){
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+      
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+
+    // Form handling with validation
+    const form = document.querySelector("form");
+    
+    form.addEventListener("submit", function(e){
       e.preventDefault();
 
-      alert("Thank you! Your message has been received.");
+      const name = form.querySelector('input[type="text"]').value.trim();
+      const email = form.querySelector('input[type="email"]').value.trim();
+      const message = form.querySelector('textarea').value.trim();
 
+      // Basic validation
+      if(!name || !email || !message){
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      if(!email.includes('@')){
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      alert("Thank you for reaching out, " + name + "! Your message has been received. I'll get back to you soon.");
+      form.reset();
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if(href !== '#'){
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if(target){
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
     });
 
   </script>
