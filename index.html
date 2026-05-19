@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#060a14">
+  <title>Eric Owusu-Sekyere</title>
+
+  <meta
+    name="description"
+    content="Personal portfolio of Eric Boakye Owusu-Sekyere, aspiring software engineer based in Tamale, Ghana."
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site header">
+    <div class="logo-container">
+      <div class="logo">ERIC B. O. S.</div>
+    </div>
+  </header>
+  <!-- Scroll Progress -->
+  <div class="scroll-progress"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Back to top -->
+  <button
+    class="back-top"
+    id="backTop"
+    aria-label="Back to top"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+
+      
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact" class="nav-cta">Get In Touch</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-grid"></div>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="container hero-content">
+
+      <div class="status-badge fade-up">
+        <span class="status-dot"></span>
+        Open to opportunities ·
+      </div>
+
+      <h1>
+        <span class="h1-line1 fade-up">
+          Building the future,
+        </span>
+
+        <span class="h1-line2 fade-up">
+          one line at a time.
+        </span>
+      </h1>
+
+      <!-- Typing Effect -->
+      <div class="typing-text"></div>
+
+      <img src="ChatGPT Image May 2, 2026, 10_17_43 PM.png" alt="My professional picture" class="profile-pic fade-up" style="width:200px; height:200px; border-radius:90%; object-fit:cover; border: 3px solid #3b82f6;">
+
+      <p class="hero-desc fade-up">
+        Hi🙋‍♂️, I'm Eric Boakye Owusu-Sekyere — aspiring software engineer and STEM enthusiast crafting digital experiences that solve real-world problems through code, creativity, and relentless curiosity.
+      </p>
+
+      <div class="cta-group stagger fade-up">
+
+        <a href="#contact" class="btn btn-primary">
+          Get In Touch
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+
+        <a href="#about" class="btn btn-secondary">
+          Learn More
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </a>
+
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+
+      <div class="fade-up">
+        <p class="section-eyebrow">Who I Am</p>
+        <h2 class="section-title">About Me</h2>
+
+        <p class="section-subtitle">
+          Passionate about software engineering, STEM, and building impactful technology solutions.
+        </p>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="about-block fade-up">
+          <div class="about-icon">🌍</div>
+
+          <h3>Who I am</h3>
+
+          <p>
+            An aspiring software engineer based in Ghana with a growing passion for web development and innovation.
+          </p>
+        </div>
+
+        <div class="about-block fade-up">
+          <div class="about-icon">💡</div>
+
+          <h3>How I think</h3>
+
+          <p>
+            I believe in writing clean, maintainable code and staying updated with modern technologies.
+          </p>
+        </div>
+
+        <div class="about-block wide fade-up">
+          <div class="about-icon">⚡</div>
+
+          <h3>What drives me</h3>
+
+          <p>
+            I enjoy exploring how software can solve everyday challenges while continuously improving my technical and creative skills.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+
+      <div class="fade-up">
+        <p class="section-eyebrow">What I Know</p>
+
+        <h2 class="section-title">Skills</h2>
+
+        <p class="section-subtitle">
+          Technologies and strengths shaping my software engineering journey.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card fade-up">
+          <div class="skill-icon">🌐</div>
+
+          <h3>Web Development</h3>
+
+          <p>
+            Building responsive and accessible web applications using modern tools and frameworks.
+          </p>
+        </div>
+
+        <div class="skill-card fade-up">
+          <div class="skill-icon">⚙️</div>
+
+          <h3>Software Engineering</h3>
+
+          <p>
+            Exploring development principles, design patterns, and scalable software architecture.
+          </p>
+        </div>
+
+        <div class="skill-card fade-up">
+          <div class="skill-icon">🧩</div>
+
+          <h3>Problem Solving</h3>
+
+          <p>
+            Using technology creatively to solve real-world problems with elegant and efficient solutions.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="fade-up">
+        <p class="section-eyebrow">Let's Connect</p>
+
+        <h2 class="section-title">Get In Touch</h2>
+
+        <p class="section-subtitle">
+          Interested in collaborating, connecting, or discussing opportunities?
+        </p>
+      </div>
+
+      <div class="contact-wrap">
+
+        <div class="contact-info fade-up">
+          <h3>Let's build something great together.</h3>
+
+          <p>
+            Whether it's a project, an opportunity, or just a conversation about tech.
+          </p>
+        </div>
+
+        <div class="contact-form fade-up">
+
+          <form id="contactForm" novalidate>
+
+            <div class="form-row">
+
+              <div class="form-group">
+                <label class="form-label" for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input id="email" type="email" placeholder="your@email.com" required>
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Message</label>
+
+              <textarea id="message" placeholder="Tell me what you have in mind..." required></textarea>
+            </div>
+
+            <div id="formStatus" class="form-status"></div>
+
+            <button type="submit" class="btn btn-primary">
+              Send Message
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <div class="footer-logo">ERIC B. O. S.</div>
+
+        <p class="footer-text">
+          © 2026 Eric Boakye Owusu-Sekyere
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
